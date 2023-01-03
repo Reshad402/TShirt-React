@@ -5,6 +5,9 @@ const Cart = ({ cart, handleRemoveItem }) => {
     if (cart.length === 0) {
         message = <p>Please buy one item from the cart</p>
     }
+    else {
+        message = <p>Thanks for buying</p>
+    }
     return (
         <div>
             <h2>Order details</h2>
@@ -20,6 +23,9 @@ const Cart = ({ cart, handleRemoveItem }) => {
             }
             {
                 message
+            }
+            {
+                cart.length === 3 ? <p>Tin jon ke gift diba?</p> : <p>Kino 3bar</p>
             }
         </div>
     );
