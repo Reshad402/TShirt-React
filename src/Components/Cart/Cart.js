@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Cart.css'
 const Cart = ({ cart, handleRemoveItem }) => {
     let message;
     if (cart.length === 0) {
@@ -10,7 +10,7 @@ const Cart = ({ cart, handleRemoveItem }) => {
     }
     return (
         <div>
-            <h2>Order details</h2>
+            <h2 className={cart.length === 2 ? `orang` : 'purp'}>Order details</h2>
             <h4>Total cart added:{cart.length}</h4>
             {
                 //?                             Adding the name of the added products
@@ -25,7 +25,10 @@ const Cart = ({ cart, handleRemoveItem }) => {
                 message
             }
             {
-                cart.length === 3 ? <p>Tin jon ke gift diba?</p> : <p>Kino 3bar</p>
+                cart.length === 3 ? <p>Tin jon ke gift diba?</p> : <p>Kino 3barn</p>
+            }
+            {
+
             }
         </div>
     );
