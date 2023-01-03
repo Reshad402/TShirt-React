@@ -9,6 +9,7 @@ const Home = () => {
 
     const handleAddToCart = tshirt => {
         //                          ?If one item is max one time then use this if else
+        //?                         Find is used as only one item is needed to check               
         const exists = cart.find(ts => ts._id === tshirt._id);
         if (exists) {
             alert('This is already in the cart')
@@ -19,6 +20,14 @@ const Home = () => {
         }
 
     }
+
+    const handleRemoveItem = tshirt => {
+        //?                             Important is filtering the "cart " part
+        const remaining = cart.filter(ts => ts._id !== tshirt._id);
+        // const [cart, setCart] = useState([]);
+        setCart(remaining);
+    }
+
     return (
         <div className='home-container'>
             <div className="t-shirt-container">
@@ -31,7 +40,10 @@ const Home = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart
+                    cart={cart}
+                    handleRemoveItem={handleRemoveItem}
+                ></Cart>
             </div>
         </div>
     );
